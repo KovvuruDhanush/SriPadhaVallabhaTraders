@@ -10,193 +10,173 @@
 body{
   margin:0;
   font-family:"Segoe UI", Calibri, Arial, sans-serif;
-  font-size:12px;
-  background:#f0f2f5;
-  color:#2c3e50;
+  font-size:11px;
+  background:#eef2f7;
 }
 button{
   display:block;
-  margin:20px auto;
-  padding:10px 25px;
+  margin:12px auto;
+  padding:9px 22px;
   font-weight:600;
-  background:linear-gradient(135deg,#143a8f,#1a237e);
+  background:#143a8f;
   color:#fff;
   border:none;
-  border-radius:8px;
+  border-radius:6px;
   cursor:pointer;
-  box-shadow:0 4px 6px rgba(0,0,0,0.2);
-  transition:0.3s;
 }
-button:hover{
-  background:linear-gradient(135deg,#102f73,#0d1f55);
-  transform:translateY(-2px);
-}
+button:hover{background:#102f73;}
 
 /* ================= A4 ================= */
 .invoice{
   width:210mm;
-  min-height:297mm;
+  height:297mm;
   margin:auto;
   background:#fff;
-  padding:20mm;
+  padding:14mm;
   box-sizing:border-box;
-  box-shadow:0 0 15px rgba(0,0,0,0.15);
-  border-radius:12px;
 }
 
 /* ================= TITLE ================= */
 .invoice-title{
   text-align:center;
-  font-size:26px;
+  font-size:22px;
   font-weight:900;
-  letter-spacing:2px;
-  margin-bottom:15px;
-  color:#1a237e;
-  text-shadow:1px 1px 2px rgba(0,0,0,0.1);
+  letter-spacing:1px;
+  margin-bottom:8px;
+  color:#143a8f;
 }
 
 /* ================= HEADER ================= */
 .header{
   display:flex;
   justify-content:space-between;
-  align-items:flex-start;
-  border-top:4px solid #143a8f;
-  border-bottom:4px solid #143a8f;
-  padding:12px 0;
-  margin-bottom:15px;
-  background:linear-gradient(90deg,#f8f9fb,#e3e8f0);
-  border-radius:8px;
+  border-top:3px solid #143a8f;
+  border-bottom:3px solid #143a8f;
+  padding:8px 0;
+  margin-bottom:8px;
 }
 .header-left{
   display:flex;
-  gap:14px;
+  gap:10px;
 }
 .header-left img{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  border:2px solid #143a8f;
+  width:78px;
+  height:78px;
 }
 .header-left-text h1{
   margin:0;
-  font-size:20px;
-  font-weight:800;
-  color:#143a8f;
+  font-size:17px;
+}
+.header-left-text h3{
+  margin:2px 0;
+  font-size:11px;
 }
 .header-left-text p{
-  margin:2px 0;
-  font-size:12px;
-  color:#2c3e50;
+  margin:1px 0;
+  font-size:10.5px;
 }
 .header-right{
   text-align:right;
-  font-size:12px;
-  line-height:1.6;
-  color:#2c3e50;
+  font-size:10.5px;
+  line-height:1.5;
 }
 
 /* ================= TABLES ================= */
 table{
   width:100%;
   border-collapse:collapse;
-  margin-bottom:10px;
-  box-shadow:0 2px 5px rgba(0,0,0,0.05);
+  margin-bottom:6px;
 }
 td, th{
   border:1px solid #143a8f;
-  padding:6px;
-  font-size:12px;
-  text-align:center;
+  padding:4px;
+  font-size:10.8px;
 }
 th{
-  background:linear-gradient(90deg,#e3e8f0,#f0f3ff);
+  background:#f1f4ff;
   font-weight:700;
+  text-align:center;
 }
 
 /* ================= INPUTS ================= */
 input, textarea{
   width:100%;
-  font-size:11px;
-  padding:5px 6px;
-  border:1px solid #ccc;
-  border-radius:4px;
+  font-size:10.8px;
+  padding:3px;
+  border:1px solid #aaa;
   box-sizing:border-box;
+  text-transform:uppercase;
 }
 textarea{
   resize:none;
   overflow:hidden;
-  min-height:38px;
+  min-height:32px;
 }
 
 /* ================= BILL SHIP ================= */
 .bill-ship-row{
   display:flex;
-  gap:10px;
-  margin-bottom:10px;
+  gap:6px;
+  margin-bottom:6px;
 }
 .bill-ship-column{
   flex:1;
-  padding:10px;
+  padding:6px;
   border:1px solid #143a8f;
-  background:#f8f9fb;
-  border-radius:6px;
+  background:#fafcff;
 }
 label{
   font-weight:700;
-  font-size:12px;
-  display:block;
-  margin-bottom:4px;
+  font-size:10.5px;
 }
 .flex-row{
   display:flex;
-  gap:8px;
+  gap:4px;
 }
 .flex-row input{flex:1;}
 
 /* ================= TOTAL ================= */
 .total-row td{
-  background:#f2f4f8;
-  font-weight:700;
-  font-size:12px;
+  background:#eef2f9;
+  font-weight:800;
 }
 
 /* ================= NOTE + SIGN ================= */
 .note-sign{
   display:flex;
   justify-content:space-between;
-  gap:25px;
-  margin-top:15px;
+  gap:14px;
+  margin-top:8px;
 }
 .note{
   flex:1;
-  background:#f0f3ff;
-  border-left:5px solid #143a8f;
-  padding:10px;
-  font-size:12px;
-  border-radius:4px;
+  background:#f2f5ff;
+  border-left:4px solid #143a8f;
+  padding:6px;
+  font-size:10.5px;
 }
 .signature{
-  width:220px;
+  width:180px;
   text-align:center;
-  font-size:12px;
+  font-size:10.5px;
 }
 .signature img{
-  width:160px;
-  margin:8px auto;
+  width:120px;
+  margin:4px auto;
   display:block;
 }
 .signature .line{
   border-top:2px solid #143a8f;
-  padding-top:6px;
+  padding-top:3px;
   font-weight:700;
 }
 
 /* ================= FOOTER ================= */
 .footer{
   text-align:center;
-  font-size:12px;
+  font-size:10.5px;
   font-weight:700;
-  margin-top:12px;
+  margin-top:6px;
   color:#143a8f;
 }
 
@@ -208,14 +188,13 @@ label{
 @media print{
   button{display:none;}
   body{background:#fff;}
-  .invoice{box-shadow:none;}
 }
 </style>
 </head>
 
 <body>
 
-<button onclick="window.print()">Print Invoice</button>
+<button onclick="window.print()">PRINT INVOICE</button>
 
 <div class="invoice">
 
@@ -226,120 +205,145 @@ label{
     <img src="lord-dattatreya.png">
     <div class="header-left-text">
       <h1>SRI PADAVALLABHA TRADERS</h1>
-      <p>PADDY, RICE BRAN, BROKEN etc.</p>
-      <p>Prop. Kovvuru Narayana</p>
-      <p>#22/58B, Kota Street, NANDYAL – 518501</p>
+      <h3>GSTIN : 37BVLPN0867M1ZU</h3>
+      <p>PADDY, RICE BRAN, BROKEN ETC.</p>
+      <p>PROP. KOVVURU NARAYANA</p>
+      <p>#22/58B, KOTA STREET, NANDYAL – 518501</p>
     </div>
   </div>
   <div class="header-right">
-    <b>Cell</b> : 9440327186<br>
+    <b>CELL</b> : 9440327186<br>
     <b>TMB</b> : 190150050800234<br>
     <b>IFSC</b> : TMBL0000190<br>
-    <b>Branch</b> : Nandyal
+    <b>BRANCH</b> : NANDYAL
   </div>
 </div>
 
 <table>
 <tr>
-<td><b>Invoice No</b></td><td><input></td>
-<td><b>State</b></td><td><input value="Andhra Pradesh"></td>
+<td><b>INVOICE NO</b></td><td><input></td>
+<td><b>STATE</b></td><td><input value="ANDHRA PRADESH"></td>
 </tr>
 <tr>
-<td><b>Date</b></td><td><input type="date"></td>
-<td><b>State Code</b></td><td><input value="37"></td>
+<td><b>DATE</b></td><td><input type="date"></td>
+<td><b>STATE CODE</b></td><td><input value="37"></td>
 </tr>
 <tr>
-<td><b>Through</b></td><td><input></td>
-<td><b>Way Bill</b></td><td><input></td>
+<td><b>THROUGH</b></td><td><input></td>
+<td><b>WAY BILL</b></td><td><input></td>
 </tr>
 <tr>
 <td colspan="2"></td>
-<td><b>Lorry No</b></td><td><input></td>
+<td><b>LORRY NO</b></td><td><input></td>
 </tr>
 </table>
 
 <div class="bill-ship-row">
 <div class="bill-ship-column">
-<label>Bill of Party</label>
+<label>BILL OF PARTY</label>
 <textarea oninput="autoResize(this)"></textarea>
 <label>GSTIN / UIN</label>
 <input>
 <div class="flex-row">
-<input placeholder="State"><input placeholder="Code">
+<input placeholder="STATE"><input placeholder="CODE">
 </div>
 </div>
 
 <div class="bill-ship-column">
-<label>Ship to Party</label>
+<label>SHIP TO PARTY</label>
 <textarea oninput="autoResize(this)"></textarea>
 <label>GSTIN / UIN</label>
 <input>
 <div class="flex-row">
-<input placeholder="State"><input placeholder="Code">
+<input placeholder="STATE"><input placeholder="CODE">
 </div>
 </div>
 </div>
 
 <table>
 <tr>
-<th>Sr</th><th>HSN</th><th>Product</th><th>Bags</th>
-<th>Qtls</th><th>Rate</th><th>Value</th><th>Ps</th>
+<th>SR</th><th>HSN</th><th>PRODUCT</th><th>BAGS</th>
+<th>QTLS</th><th>RATE</th><th>VALUE</th><th>PS</th>
 </tr>
+
 <tr>
-<td>1</td><td><input value="23022020"></td>
-<td><input value="50 kg Bag"></td>
+<td>1</td>
+<td><input value="23022020"></td>
+<td><input value="50 KG BAG"></td>
 <td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
 </tr>
+
 <tr><td colspan="5"></td><td>CGST</td><td><input></td><td><input></td></tr>
 <tr><td colspan="5"></td><td>SGST</td><td><input></td><td><input></td></tr>
 <tr><td colspan="5"></td><td>IGST</td><td><input></td><td><input></td></tr>
+
 <tr class="total-row">
 <td colspan="5">TOTAL</td>
-<td colspan="3"><input id="total" oninput="convertTotalToWords()"></td>
+<td colspan="3">
+<input id="total" onblur="formatTotal()" oninput="convertTotalToWords()">
+</td>
 </tr>
-<tr class="total-row">
-<td colspan="5">Business Through</td>
-<td colspan="3"><input></td>
-</tr>
+
 <tr>
-<td colspan="8"><b>Amount in Words :</b> <span id="inWords"></span></td>
+<td colspan="8"><b>AMOUNT IN WORDS :</b> <span id="inWords"></span></td>
 </tr>
 </table>
 
 <div class="note-sign">
   <div class="note">
-    <b>Note:</b><br>
-    1. After dispatch, no responsibility for transit damages.<br>
-    2. Cash payment without receipt is not accepted.
+    <b>NOTE:</b><br>
+    1. AFTER DISPATCH, NO RESPONSIBILITY FOR TRANSIT DAMAGES.<br>
+    2. CASH PAYMENT WITHOUT RECEIPT IS NOT ACCEPTED.
   </div>
 
   <div class="signature">
     <img src="signature.jpeg">
-    <div class="line">Authorized Signatory</div>
+    <div class="line">AUTHORIZED SIGNATORY</div>
   </div>
 </div>
 
-
+<div class="footer">
+THANK YOU FOR YOUR BUSINESS
+</div>
 
 </div>
 
 <script>
+/* AUTO UPPERCASE */
+document.addEventListener("input", e => {
+  if((e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") && e.target.type !== "date"){
+    e.target.value = e.target.value.toUpperCase();
+  }
+});
+
+/* TOTAL FORMAT */
+function formatTotal(){
+  let t=document.getElementById("total");
+  let v=parseFloat(t.value);
+  if(!isNaN(v)) t.value=v.toFixed(2);
+}
+
+/* TOTAL TO WORDS */
 function convertTotalToWords(){
   const t=parseFloat(document.getElementById("total").value);
   document.getElementById("inWords").innerText =
-    !isNaN(t)?numberToWords(Math.floor(t))+" Rupees Only":"";
+    !isNaN(t)?numberToWords(Math.floor(t))+" RUPEES ONLY":"";
 }
+
+/* NUMBER TO WORDS */
 function numberToWords(n){
-const a=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
-"Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
-const b=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];
-if(n===0)return"Zero";
+const a=["","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE","TEN",
+"ELEVEN","TWELVE","THIRTEEN","FOURTEEN","FIFTEEN","SIXTEEN","SEVENTEEN","EIGHTEEN","NINETEEN"];
+const b=["","","TWENTY","THIRTY","FORTY","FIFTY","SIXTY","SEVENTY","EIGHTY","NINETY"];
+if(n===0)return"ZERO";
 if(n<20)return a[n];
 if(n<100)return b[Math.floor(n/10)]+" "+a[n%10];
-if(n<1000)return a[Math.floor(n/100)]+" Hundred "+numberToWords(n%100);
-if(n<100000)return numberToWords(Math.floor(n/1000))+" Thousand "+numberToWords(n%1000);
-return numberToWords(Math.floor(n/100000))+" Lakh "+numberToWords(n%100000);
+if(n<1000)return a[Math.floor(n/100)]+" HUNDRED "+numberToWords(n%100);
+if(n<100000)return numberToWords(Math.floor(n/1000))+" THOUSAND "+numberToWords(n%1000);
+return numberToWords(Math.floor(n/100000))+" LAKH "+numberToWords(n%100000);
 }
+
+/* AUTO TEXTAREA HEIGHT */
 function autoResize(t){
 t.style.height="auto";
 t.style.height=t.scrollHeight+"px";
