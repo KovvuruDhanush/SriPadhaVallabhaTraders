@@ -27,7 +27,7 @@ button:hover{background:#102f73;}
 
 .invoice{
   width:210mm;
-  height:297mm;
+  min-height:297mm;
   margin:auto;
   background:#fff;
   padding:14mm;
@@ -205,7 +205,8 @@ label{
 <td><b>STATE</b></td><td><input value="ANDHRA PRADESH"></td>
 </tr>
 <tr>
-<td><b>DATE</b></td><td><input type="date"></td>
+<td><b>DATE</b></td>
+<td><input id="invoiceDate" placeholder="DD-MM-YYYY" maxlength="10"></td>
 <td><b>STATE CODE</b></td><td><input value="37"></td>
 </tr>
 <tr>
@@ -264,8 +265,13 @@ label{
 </td>
 </tr>
 
+<tr class="total-row">
+<td colspan="5">BUSINESS THROUGH</td>
+<td colspan="3"><input></td>
+</tr>
+
 <tr>
-<td colspan="8"><b>AMOUNT IN WORDS :</b> <span id="inWords"></span></td>
+<td colspan="8"><b>RUPEES IN WORDS :</b> <span id="inWords"></span></td>
 </tr>
 </table>
 
@@ -287,13 +293,31 @@ label{
 </div>
 
 <script>
-/* AUTO CAPITALIZE LETTERS, ALLOW NUMBERS */
+/* AUTO CAPITALIZE LETTERS + ALLOW NUMBERS */
 document.addEventListener("input", function(e){
   const el = e.target;
   if ((el.tagName === "INPUT" || el.tagName === "TEXTAREA") && el.type !== "date") {
     el.value = el.value.toUpperCase();
   }
 });
+
+/* ENTER KEY NAVIGATION */
+document.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    const inputs = Array.from(document.querySelectorAll("input, textarea"));
+    const idx = inputs.indexOf(e.target);
+    if(idx > -1 && idx < inputs.length - 1){
+      inputs[idx + 1].focus();
+      e.preventDefault();
+    }
+  }
+});
+
+/* AUTO TEXTAREA HEIGHT */
+function autoResize(t){
+  t.style.height="auto";
+  t.style.height=t.scrollHeight+"px";
+}
 
 /* TOTAL FORMAT */
 function formatTotal(){
@@ -322,11 +346,24 @@ if(n<100000)return numberToWords(Math.floor(n/1000))+" THOUSAND "+numberToWords(
 return numberToWords(Math.floor(n/100000))+" LAKH "+numberToWords(n%100000);
 }
 
-/* AUTO TEXTAREA HEIGHT */
-function autoResize(t){
-  t.style.height="auto";
-  t.style.height=t.scrollHeight+"px";
-}
+/* DATE FORMAT DD-MM-YYYY WITH CALENDAR INPUT */
+const invoiceDate = document.getElementById("invoiceDate");
+invoiceDate.addEventListener("focus", function(){
+  this.type = "date";
+});
+invoiceDate.addEventListener("blur", function(){
+  if(this.value){
+    const d = new Date(this.value);
+    let dd = String(d.getDate()).padStart(2,'0');
+    let mm = String(d.getMonth()+1).padStart(2,'0');
+    let yyyy = d.getFullYear();
+    this.type = "text";
+    this.value = dd + "-" + mm + "-" + yyyy;
+  } else {
+    this.type = "text";
+    this.value = "";
+  }
+});
 </script>
 
 </body>
