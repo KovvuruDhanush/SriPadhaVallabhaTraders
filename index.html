@@ -6,7 +6,6 @@
 <title>TAX INVOICE</title>
 
 <style>
-/* ================= BASE ================= */
 body{
   margin:0;
   font-family:"Segoe UI", Calibri, Arial, sans-serif;
@@ -26,7 +25,6 @@ button{
 }
 button:hover{background:#102f73;}
 
-/* ================= A4 ================= */
 .invoice{
   width:210mm;
   height:297mm;
@@ -36,7 +34,6 @@ button:hover{background:#102f73;}
   box-sizing:border-box;
 }
 
-/* ================= TITLE ================= */
 .invoice-title{
   text-align:center;
   font-size:22px;
@@ -46,7 +43,6 @@ button:hover{background:#102f73;}
   color:#143a8f;
 }
 
-/* ================= HEADER ================= */
 .header{
   display:flex;
   justify-content:space-between;
@@ -63,31 +59,21 @@ button:hover{background:#102f73;}
   width:78px;
   height:78px;
 }
-.header-left-text h1{
-  margin:0;
-  font-size:17px;
-}
-.header-left-text h3{
-  margin:2px 0;
-  font-size:11px;
-}
-.header-left-text p{
-  margin:1px 0;
-  font-size:10.5px;
-}
+.header-left-text h1{margin:0;font-size:17px;}
+.header-left-text h3{margin:2px 0;font-size:11px;}
+.header-left-text p{margin:1px 0;font-size:10.5px;}
 .header-right{
   text-align:right;
   font-size:10.5px;
   line-height:1.5;
 }
 
-/* ================= TABLES ================= */
 table{
   width:100%;
   border-collapse:collapse;
   margin-bottom:6px;
 }
-td, th{
+td,th{
   border:1px solid #143a8f;
   padding:4px;
   font-size:10.8px;
@@ -98,8 +84,7 @@ th{
   text-align:center;
 }
 
-/* ================= INPUTS ================= */
-input, textarea{
+input,textarea{
   width:100%;
   font-size:10.8px;
   padding:3px;
@@ -113,7 +98,6 @@ textarea{
   min-height:32px;
 }
 
-/* ================= BILL SHIP ================= */
 .bill-ship-row{
   display:flex;
   gap:6px;
@@ -135,13 +119,11 @@ label{
 }
 .flex-row input{flex:1;}
 
-/* ================= TOTAL ================= */
 .total-row td{
   background:#eef2f9;
   font-weight:800;
 }
 
-/* ================= NOTE + SIGN ================= */
 .note-sign{
   display:flex;
   justify-content:space-between;
@@ -171,7 +153,6 @@ label{
   font-weight:700;
 }
 
-/* ================= FOOTER ================= */
 .footer{
   text-align:center;
   font-size:10.5px;
@@ -180,7 +161,6 @@ label{
   color:#143a8f;
 }
 
-/* ================= PRINT ================= */
 @page{
   size:A4;
   margin:0;
@@ -302,17 +282,16 @@ label{
   </div>
 </div>
 
-<div class="footer">
-THANK YOU FOR YOUR BUSINESS
-</div>
+<div class="footer">THANK YOU FOR YOUR BUSINESS</div>
 
 </div>
 
 <script>
-/* AUTO UPPERCASE */
-document.addEventListener("input", e => {
-  if((e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") && e.target.type !== "date"){
-    e.target.value = e.target.value.toUpperCase();
+/* AUTO CAPITALIZE LETTERS, ALLOW NUMBERS */
+document.addEventListener("input", function(e){
+  const el = e.target;
+  if ((el.tagName === "INPUT" || el.tagName === "TEXTAREA") && el.type !== "date") {
+    el.value = el.value.toUpperCase();
   }
 });
 
@@ -345,8 +324,8 @@ return numberToWords(Math.floor(n/100000))+" LAKH "+numberToWords(n%100000);
 
 /* AUTO TEXTAREA HEIGHT */
 function autoResize(t){
-t.style.height="auto";
-t.style.height=t.scrollHeight+"px";
+  t.style.height="auto";
+  t.style.height=t.scrollHeight+"px";
 }
 </script>
 
