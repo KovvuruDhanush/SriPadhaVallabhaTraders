@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAX INVOICE</title>
+
+<style>
+/* ================= BASE ================= */
+body{
+  margin:0;
+  font-family:"Segoe UI", Calibri, Arial, sans-serif;
+  font-size:12px;
+  background:#f0f2f5;
+  color:#2c3e50;
+}
+button{
+  display:block;
+  margin:20px auto;
+  padding:10px 25px;
+  font-weight:600;
+  background:linear-gradient(135deg,#143a8f,#1a237e);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+button:hover{
+  background:linear-gradient(135deg,#102f73,#0d1f55);
+  transform:translateY(-2px);
+}
+
+/* ================= A4 ================= */
+.invoice{
+  width:210mm;
+  min-height:297mm;
+  margin:auto;
+  background:#fff;
+  padding:20mm;
+  box-sizing:border-box;
+  box-shadow:0 0 15px rgba(0,0,0,0.15);
+  border-radius:12px;
+}
+
+/* ================= TITLE ================= */
+.invoice-title{
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:15px;
+  color:#1a237e;
+  text-shadow:1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ================= HEADER ================= */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  border-top:4px solid #143a8f;
+  border-bottom:4px solid #143a8f;
+  padding:12px 0;
+  margin-bottom:15px;
+  background:linear-gradient(90deg,#f8f9fb,#e3e8f0);
+  border-radius:8px;
+}
+.header-left{
+  display:flex;
+  gap:14px;
+}
+.header-left img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:2px solid #143a8f;
+}
+.header-left-text h1{
+  margin:0;
+  font-size:20px;
+  font-weight:800;
+  color:#143a8f;
+}
+.header-left-text p{
+  margin:2px 0;
+  font-size:12px;
+  color:#2c3e50;
+}
+.header-right{
+  text-align:right;
+  font-size:12px;
+  line-height:1.6;
+  color:#2c3e50;
+}
+
+/* ================= TABLES ================= */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+td, th{
+  border:1px solid #143a8f;
+  padding:6px;
+  font-size:12px;
+  text-align:center;
+}
+th{
+  background:linear-gradient(90deg,#e3e8f0,#f0f3ff);
+  font-weight:700;
+}
+
+/* ================= INPUTS ================= */
+input, textarea{
+  width:100%;
+  font-size:11px;
+  padding:5px 6px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  box-sizing:border-box;
+}
+textarea{
+  resize:none;
+  overflow:hidden;
+  min-height:38px;
+}
+
+/* ================= BILL SHIP ================= */
+.bill-ship-row{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+}
+.bill-ship-column{
+  flex:1;
+  padding:10px;
+  border:1px solid #143a8f;
+  background:#f8f9fb;
+  border-radius:6px;
+}
+label{
+  font-weight:700;
+  font-size:12px;
+  display:block;
+  margin-bottom:4px;
+}
+.flex-row{
+  display:flex;
+  gap:8px;
+}
+.flex-row input{flex:1;}
+
+/* ================= TOTAL ================= */
+.total-row td{
+  background:#f2f4f8;
+  font-weight:700;
+  font-size:12px;
+}
+
+/* ================= NOTE + SIGN ================= */
+.note-sign{
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  margin-top:15px;
+}
+.note{
+  flex:1;
+  background:#f0f3ff;
+  border-left:5px solid #143a8f;
+  padding:10px;
+  font-size:12px;
+  border-radius:4px;
+}
+.signature{
+  width:220px;
+  text-align:center;
+  font-size:12px;
+}
+.signature img{
+  width:160px;
+  margin:8px auto;
+  display:block;
+}
+.signature .line{
+  border-top:2px solid #143a8f;
+  padding-top:6px;
+  font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
+  margin-top:12px;
+  color:#143a8f;
+}
+
+/* ================= PRINT ================= */
+@page{
+  size:A4;
+  margin:0;
+}
+@media print{
+  button{display:none;}
+  body{background:#fff;}
+  .invoice{box-shadow:none;}
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="window.print()">Print Invoice</button>
+
+<div class="invoice">
+
+<div class="invoice-title">TAX INVOICE</div>
+
+<div class="header">
+  <div class="header-left">
+    <img src="lord-dattatreya.png">
+    <div class="header-left-text">
+      <h1>SRI PADAVALLABHA TRADERS</h1>
+      <p>PADDY, RICE BRAN, BROKEN etc.</p>
+      <p>Prop. Kovvuru Narayana</p>
+      <p>#22/58B, Kota Street, NANDYAL – 518501</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <b>Cell</b> : 9440327186<br>
+    <b>TMB</b> : 190150050800234<br>
+    <b>IFSC</b> : TMBL0000190<br>
+    <b>Branch</b> : Nandyal
+  </div>
+</div>
+
+<table>
+<tr>
+<td><b>Invoice No</b></td><td><input></td>
+<td><b>State</b></td><td><input value="Andhra Pradesh"></td>
+</tr>
+<tr>
+<td><b>Date</b></td><td><input type="date"></td>
+<td><b>State Code</b></td><td><input value="37"></td>
+</tr>
+<tr>
+<td><b>Through</b></td><td><input></td>
+<td><b>Way Bill</b></td><td><input></td>
+</tr>
+<tr>
+<td colspan="2"></td>
+<td><b>Lorry No</b></td><td><input></td>
+</tr>
+</table>
+
+<div class="bill-ship-row">
+<div class="bill-ship-column">
+<label>Bill of Party</label>
+<textarea oninput="autoResize(this)"></textarea>
+<label>GSTIN / UIN</label>
+<input>
+<div class="flex-row">
+<input placeholder="State"><input placeholder="Code">
+</div>
+</div>
+
+<div class="bill-ship-column">
+<label>Ship to Party</label>
+<textarea oninput="autoResize(this)"></textarea>
+<label>GSTIN / UIN</label>
+<input>
+<div class="flex-row">
+<input placeholder="State"><input placeholder="Code">
+</div>
+</div>
+</div>
+
+<table>
+<tr>
+<th>Sr</th><th>HSN</th><th>Product</th><th>Bags</th>
+<th>Qtls</th><th>Rate</th><th>Value</th><th>Ps</th>
+</tr>
+<tr>
+<td>1</td><td><input value="23022020"></td>
+<td><input value="50 kg Bag"></td>
+<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+</tr>
+<tr><td colspan="5"></td><td>CGST</td><td><input></td><td><input></td></tr>
+<tr><td colspan="5"></td><td>SGST</td><td><input></td><td><input></td></tr>
+<tr><td colspan="5"></td><td>IGST</td><td><input></td><td><input></td></tr>
+<tr class="total-row">
+<td colspan="5">TOTAL</td>
+<td colspan="3"><input id="total" oninput="convertTotalToWords()"></td>
+</tr>
+<tr class="total-row">
+<td colspan="5">Business Through</td>
+<td colspan="3"><input></td>
+</tr>
+<tr>
+<td colspan="8"><b>Amount in Words :</b> <span id="inWords"></span></td>
+</tr>
+</table>
+
+<div class="note-sign">
+  <div class="note">
+    <b>Note:</b><br>
+    1. After dispatch, no responsibility for transit damages.<br>
+    2. Cash payment without receipt is not accepted.
+  </div>
+
+  <div class="signature">
+    <img src="signature.jpeg">
+    <div class="line">Authorized Signatory</div>
+  </div>
+</div>
+
+
+
+</div>
+
+<script>
+function convertTotalToWords(){
+  const t=parseFloat(document.getElementById("total").value);
+  document.getElementById("inWords").innerText =
+    !isNaN(t)?numberToWords(Math.floor(t))+" Rupees Only":"";
+}
+function numberToWords(n){
+const a=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
+"Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
+const b=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"];
+if(n===0)return"Zero";
+if(n<20)return a[n];
+if(n<100)return b[Math.floor(n/10)]+" "+a[n%10];
+if(n<1000)return a[Math.floor(n/100)]+" Hundred "+numberToWords(n%100);
+if(n<100000)return numberToWords(Math.floor(n/1000))+" Thousand "+numberToWords(n%1000);
+return numberToWords(Math.floor(n/100000))+" Lakh "+numberToWords(n%100000);
+}
+function autoResize(t){
+t.style.height="auto";
+t.style.height=t.scrollHeight+"px";
+}
+</script>
+
+</body>
+</html>
